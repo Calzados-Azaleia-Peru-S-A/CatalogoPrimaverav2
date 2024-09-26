@@ -6,267 +6,265 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SALLY-380 BLANCO</title>
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  background-color: #f4f7f6;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  overflow-y: auto;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      background-color: #f4f7f6;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      overflow-y: auto;
+    }
 
-.container {
-  max-width: 360px;
-  width: 100%;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
+    .container {
+      max-width: 360px;
+      width: 100%;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
 
-.product-block,
-.cart-summary {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
+    .product-block,
+    .cart-summary {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
 
-.product-name,
-.cart-summary h3 {
-  background: linear-gradient(45deg, #ff5722, #ff7043);
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-  padding: 3px 2px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-}
+    .product-name,
+    .cart-summary h3 {
+      background: linear-gradient(45deg, #ff5722, #ff7043);
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+      padding: 3px 2px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
 
-.price-unit {
-  font-size: 18px;
-  color: #ff7043;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
+    .price-unit {
+      font-size: 18px;
+      color: #ff7043;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
 
-.promotion-message {
-  color: #e74c3c;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
+    .promotion-message {
+      color: #e74c3c;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
-.row div {
-  flex: 1;
-  margin: 0 5px;
-}
+    .row div {
+      flex: 1;
+      margin: 0 5px;
+    }
 
-select,
-input[type="number"] {
-  width: 75%;
-  padding: 5px 5px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-  color: #333;
-  background-color: #f9f9f9;
-  text-align: center;
-}
+    select,
+    input[type="number"] {
+      width: 75%;
+      padding: 5px 5px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      color: #333;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
 
-.add-to-cart,
-.details-button,
-.send-order {
-  background: linear-gradient(45deg, #ff5722, #ff7043);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
+    .add-to-cart,
+    .details-button,
+    .send-order {
+      background: linear-gradient(45deg, #ff5722, #ff7043);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.add-to-cart:hover,
-.details-button:hover {
-  background: linear-gradient(45deg, #ff7043, #ff5722);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-}
+    .add-to-cart:hover,
+    .details-button:hover {
+      background: linear-gradient(45deg, #ff7043, #ff5722);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
 
-.send-order {
-  background: linear-gradient(45deg, #25D366, #128C7E);
-}
+    .send-order {
+      background: linear-gradient(45deg, #25D366, #128C7E);
+    }
 
-.send-order:hover {
-  background: linear-gradient(45deg, #128C7E, #25D366);
-}
+    .send-order:hover {
+      background: linear-gradient(45deg, #128C7E, #25D366);
+    }
 
-.totals {
-  margin-top: 15px;
-  font-weight: bold;
-  color: #333;
-}
+    .totals {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
 
-.totals div {
-  margin-bottom: 8px;
-  font-size: 14px;
-}
+    .totals div {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
 
-.details-container {
-  display: none;
-  margin-top: 10px;
-  text-align: center;
-}
+    .details-container {
+      display: none;
+      margin-top: 10px;
+      text-align: center;
+    }
 
-.action-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
 
-.cart-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  background-color: #f9f9f9;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
+    .cart-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
 
-.product-info {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+    .product-info {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
 
-.quantity-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5px;
-}
+    .quantity-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5px;
+    }
 
-.quantity-controls button {
-  background-color: #ff7043;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 12px;
-  cursor: pointer;
-}
+    .quantity-controls button {
+      background-color: #ff7043;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
 
-.quantity-controls button:hover {
-  background-color: #ff5722;
-}
+    .quantity-controls button:hover {
+      background-color: #ff5722;
+    }
 
-.quantity {
-  margin: 0 10px;
-  font-size: 14px;
-  font-weight: bold;
-}
+    .quantity {
+      margin: 0 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-.price {
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ff7043;
-}
+    .price {
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #ff7043;
+    }
 
-.discounted {
-  background-color: #fff5e1;
-  /* Sombreado para productos con descuento */
-  border-left: 4px solid #ff7043;
-}
+    .discount-label {
+      color: #e74c3c;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 5px;
+    }
 
-.discount-label {
-  color: #e74c3c;
-  font-weight: bold;
-  font-size: 14px;
-  margin-top: 5px;
-}
+    /* Toast CSS */
+    #toast-container {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
 
-/* Toast CSS */
-#toast-container {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  z-index: 1000;
-}
+    .toast {
+      background-color: #333;
+      color: white;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
 
-.toast {
-  background-color: #333;
-  color: white;
-  padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
+    .toast.show {
+      opacity: 1;
+    }
 
-.toast.show {
-  opacity: 1;
-}
+    @media (max-width: 600px) {
+      .toast {
+        padding: 3px 7px;
+        font-size: 10px;
+      }
+    }
 
-@media (max-width: 600px) {
-  .toast {
-    padding: 3px 7px;
-    font-size: 10px;
-  }
-}
+    /* Promo Shampoo Button */
+    .promo-alert {
+      background-color: #fff5e1;
+      padding: 10px;
+      margin-top: 20px;
+      border-left: 4px solid #ff7043;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #333;
+    }
 
-/* Promo Shampoo Button */
-.promo-alert {
-  background-color: #fff5e1;
-  padding: 10px;
-  margin-top: 20px;
-  border-left: 4px solid #ff7043;
-  border-radius: 5px;
-  font-weight: bold;
-  color: #333;
-}
+    button.promo-button {
+      background: linear-gradient(45deg, #ff5722, #ff7043);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
 
-button.promo-button {
-  background: linear-gradient(45deg, #ff5722, #ff7043); /* Misma gradiente que el botón de agregar al carrito */
-  color: white;
-  border: none;
-  border-radius: 50px; /* Misma forma redondeada */
-  padding: 05px 09px; /* Mismo padding */
-  font-size: 12px; /* Mismo tamaño de fuente */
-  font-weight: 600; /* Mismo peso de fuente */
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Mismas transiciones */
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Misma sombra */
-}
+    button.promo-button:hover {
+      background: linear-gradient(45deg, #ff7043, #ff5722);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
 
-button.promo-button:hover {
-  background: linear-gradient(45deg, #ff7043, #ff5722); /* Mismo hover */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Misma sombra en hover */
-}
-
+    /* Estilos para ocultar controles de cantidad del shampoo promocional */
+    .shampoo-promo .quantity-controls {
+      display: none;
+    }
   </style>
 </head>
 
@@ -274,7 +272,7 @@ button.promo-button:hover {
   <div class="container">
     <div class="product-block" data-product-price="169.9" data-promotion="false">
       <h2 class="product-name" id="product-name">SALLY-380 BLANCO</h2>
-      <div class="price-unit">Precio: S/. 169.9</span></div>
+      <div class="price-unit">Precio: S/. 169.9</div>
 
       <!-- Aviso de promoción debajo del precio principal -->
       <div class="promotion-message" id="promotion-message" style="display: none;">
@@ -326,12 +324,12 @@ button.promo-button:hover {
   <script>
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const shampooPromo = {
-      name: "SHAMPOO AZALEIA-001 INCOLORO",
-      regularPrice: 11.9,
+      name: "SHAMPOO AZALEIA-001",
+      regularPrice: 29.9,
+      promoPrice: 11.9,
       promoThreshold: 129.9  // Umbral de la promoción
     };
 
-    // Función para agregar productos al carrito
     function addToCart() {
       const productName = document.getElementById('product-name').textContent;
       const size = document.getElementById('size').value;
@@ -355,141 +353,186 @@ button.promo-button:hover {
 
       localStorage.setItem('cart', JSON.stringify(cart));
       updateCartSummary();
-      updatePromoMessage(); // Actualiza la promoción del shampoo
+      updatePromoMessage();
       showToast('Producto añadido al carrito');
     }
 
-    // Función para actualizar el resumen del carrito
-  // Función para actualizar el resumen del carrito
-  function updateCartSummary() {
-    const cartItemsDiv = document.getElementById('cart-items');
-    const totalUnits = document.getElementById('total-units');
-    const totalPrice = document.getElementById('total-price');
+function updateCartSummary() {
+  const cartItemsDiv = document.getElementById('cart-items');
+  const totalUnits = document.getElementById('total-units');
+  const totalPrice = document.getElementById('total-price');
 
-    cartItemsDiv.innerHTML = '';
-    let totalUnitsValue = 0;
-    let totalPriceValue = 0;
+  cartItemsDiv.innerHTML = '';
+  let totalUnitsValue = 0;
+  let totalPriceValue = 0;
 
-    const groupedCart = {};
-    cart.forEach(item => {
-      const productKey = item.name;
+  const groupedCart = {};
+  cart.forEach(item => {
+    const productKey = item.name;
+    if (!groupedCart[productKey]) {
+      groupedCart[productKey] = {
+        name: item.name,
+        totalQuantity: 0,
+        items: [],
+        price: item.price,
+        promotion: item.promotion
+      };
+    }
+    groupedCart[productKey].totalQuantity += item.quantity;
+    groupedCart[productKey].items.push(item);
+  });
 
-      if (!groupedCart[productKey]) {
-        groupedCart[productKey] = {
-          name: item.name,
-          totalQuantity: 0,
-          items: [],
-          price: item.price,
-          promotion: item.promotion
-        };
-      }
-      groupedCart[productKey].totalQuantity += item.quantity;
-      groupedCart[productKey].items.push(item);
-    });
+  Object.values(groupedCart).forEach(group => {
+    const { name, totalQuantity, items, price, promotion } = group;
+    totalUnitsValue += totalQuantity;
+    let currentPair = 1;
+    let groupTotalPrice = 0;
 
-    Object.values(groupedCart).forEach(group => {
-      const { name, totalQuantity, items, price, promotion } = group;
-      totalUnitsValue += totalQuantity;
-      let currentPair = 1;
-      let groupTotalPrice = 0;
-      let totalPairsWithDiscount = 0;
+    items.forEach(item => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cart-item';
+      let totalPriceForItem = 0;
+      let discountMessage = '';
 
-      items.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'cart-item';
-        let totalPriceForItem = 0;
-        let pairsDiscounted = 0;
-
-        for (let i = 1; i <= item.quantity; i++) {
-          if (promotion && currentPair % 2 === 0) {
-            totalPriceForItem += price / 2;
-            pairsDiscounted++; // Contador para saber cuándo se aplica descuento a este producto
-          } else {
-            totalPriceForItem += price;
-          }
-          currentPair++;
-        }
-
-        groupTotalPrice += totalPriceForItem;
-        totalPairsWithDiscount += pairsDiscounted;
-
-        let discountMessage = '';
-        if (promotion && pairsDiscounted > 0) {
-          // Mostrar mensaje de descuento solo en los productos pares
+      for (let i = 1; i <= item.quantity; i++) {
+        if (promotion && currentPair % 2 === 0) {
+          totalPriceForItem += price / 2;
           discountMessage = `<div class="discount-label">🎉 ¡Descuento aplicado! 🎉</div>`;
+        } else {
+          totalPriceForItem += price;
         }
+        currentPair++;
+      }
 
-        itemDiv.innerHTML = `
-          <div class="product-info">${item.name} (Talla: ${item.size})</div>
-          <div class="quantity-controls">
-            <button onclick="updateQuantity('${item.name}', '${item.size}', -1)">-</button>
-            <span class="quantity">${item.quantity}</span>
-            <button onclick="updateQuantity('${item.name}', '${item.size}', 1)">+</button>
-          </div>
-          <div class="price" style="color: #ff7043;">S/. ${totalPriceForItem.toFixed(2)}</div>
-          ${discountMessage}
-        `;
+      groupTotalPrice += totalPriceForItem;
 
-        cartItemsDiv.appendChild(itemDiv);
-      });
+      // Ocultar botones de agregar/disminuir solo para el shampoo promocional
+      const isPromoShampoo = item.name === shampooPromo.name && item.price === shampooPromo.promoPrice;
 
-      totalPriceValue += groupTotalPrice;
+      itemDiv.innerHTML = `
+        <div class="product-info">${item.name} (Talla: ${item.size})</div>
+        <div class="quantity-controls ${isPromoShampoo ? 'shampoo-promo' : ''}">
+          ${!isPromoShampoo ? `
+          <button onclick="updateQuantity('${item.name}', '${item.size}', -1)">-</button>
+          <span class="quantity">${item.quantity}</span>
+          <button onclick="updateQuantity('${item.name}', '${item.size}', 1)">+</button>
+          ` : `
+          <span class="quantity">${item.quantity}</span> <!-- Solo mostrar la cantidad sin controles -->
+          `}
+        </div>
+        <div class="price" style="color: #ff7043;">S/. ${totalPriceForItem.toFixed(2)}</div>
+        ${discountMessage}
+      `;
+      cartItemsDiv.appendChild(itemDiv);
     });
 
-    totalUnits.textContent = totalUnitsValue;
-    totalPrice.textContent = totalPriceValue.toFixed(2);
+    totalPriceValue += groupTotalPrice;
+  });
+
+  totalUnits.textContent = totalUnitsValue;
+  totalPrice.textContent = totalPriceValue.toFixed(2);
+}
+
+function updatePromoMessage() {
+  const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const promoMessageContainer = document.getElementById('promo-message-container');
+  promoMessageContainer.innerHTML = '';
+
+  // Cantidad de shampoos que puedes agregar según el total del carrito
+  const shampooEligibleQty = Math.floor(totalPrice / shampooPromo.promoThreshold); 
+  const existingShampoo = cart.find(item => item.name === shampooPromo.name);
+
+  // Cantidad de shampoos promocionales ya agregados
+  const shampoosAgregados = existingShampoo ? existingShampoo.quantity : 0;
+
+  // Calcular cuántos shampoos promocionales quedan por agregar
+  const shampoosRestantes = shampooEligibleQty - shampoosAgregados;
+
+  // Mostrar el mensaje si quedan shampoos promocionales por agregar
+  if (shampoosRestantes > 0) {
+    const promoMessage = document.createElement('div');
+    promoMessage.className = 'promo-alert';
+    promoMessage.innerHTML = `
+      🎉 ¡Felicidades! Has superado S/ ${shampooPromo.promoThreshold}. 
+      Puedes añadir ${shampoosRestantes} shampoo(s) a S/. ${shampooPromo.promoPrice} cada uno.
+      <button class="promo-button" onclick="addShampooPromo(${shampoosRestantes})">Agregar Shampoo</button>
+    `;
+    promoMessageContainer.appendChild(promoMessage);
+  }
+}
+
+function addShampooPromo(shampoosRestantes) {
+  const existingShampoo = cart.find(item => item.name === shampooPromo.name);
+
+  // Verificar si puedes agregar más shampoos promocionales
+  if (shampoosRestantes > 0) {
+    const qtyToAdd = Math.min(1, shampoosRestantes); // Agregar solo 1 shampoo promocional por vez
+
+    if (existingShampoo) {
+      existingShampoo.quantity += qtyToAdd;
+      existingShampoo.price = shampooPromo.promoPrice;
+    } else {
+      cart.push({
+        name: shampooPromo.name,
+        size: "",
+        quantity: 1,
+        price: shampooPromo.promoPrice,
+        promotion: false
+      });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartSummary();
+    showToast('Shampoo añadido por S/. 11.9');
+
+    // Después de agregar, recalcular cuántos shampoos puedes agregar
+    updatePromoMessage();
+
+    // Si ya no puedes agregar más shampoos, eliminar el mensaje
+    if (shampoosRestantes - 1 <= 0) {
+      document.getElementById('promo-message-container').innerHTML = ''; // Limpiar mensaje cuando ya no hay shampoos para agregar
+    }
+
+  } else {
+    showToast('No puedes agregar más shampoos promocionales');
+  }
+}
+
+function updateQuantity(productName, size, change) {
+  cart.forEach(item => {
+    if (item.name === productName && item.size === size) {
+      item.quantity += change;
+      if (item.quantity <= 0) {
+        cart = cart.filter(cartItem => cartItem !== item);
+      }
+    }
+  });
+
+  // Calcular el total gastado en el carrito para determinar los shampoos promocionales
+  const totalSpent = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const maxShampoosPromo = Math.floor(totalSpent / shampooPromo.promoThreshold); // Cantidad máxima de shampoos a precio promocional
+
+  // Obtener el shampoo en el carrito
+  const existingShampoo = cart.find(item => item.name === shampooPromo.name);
+  if (existingShampoo) {
+    const totalShampooQty = existingShampoo.quantity;
+
+    // Determinar cuántos shampoos son promocionales y cuántos son a precio completo
+    const promoShampoosQty = Math.min(totalShampooQty, maxShampoosPromo);
+    const fullPriceShampoosQty = totalShampooQty - promoShampoosQty;
+
+    // Asignar precios correctos a los shampoos según su cantidad
+    let totalPromoShampoosPrice = promoShampoosQty * shampooPromo.promoPrice;
+    let totalFullPriceShampoos = fullPriceShampoosQty * shampooPromo.regularPrice;
+
+    // Asignar el precio total calculado a los shampoos
+    existingShampoo.price = (totalPromoShampoosPrice + totalFullPriceShampoos) / totalShampooQty;
   }
 
-    // Función para actualizar la promoción del shampoo si se alcanza el umbral
-    function updatePromoMessage() {
-      const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-      const promoMessageContainer = document.getElementById('promo-message-container');
-      promoMessageContainer.innerHTML = '';
-
-      if (totalPrice >= shampooPromo.promoThreshold) {
-        const promoMessage = document.createElement('div');
-        promoMessage.className = 'promo-alert';
-        promoMessage.innerHTML = `
-          🎉 ¡Felicidades! 🎉 Has superado los S/ 129.9 en tu compra.
-          Puedes añadir el SHAMPOO AZALEIA-001 (Pág. 161) por S/ 11.9.
-          <button class="promo-button" onclick="addShampooPromo()">Agregar Shampoo</button>
-        `;
-        promoMessageContainer.appendChild(promoMessage);
-      }
-    }
-
-    // Función para agregar shampoo al carrito con precio promocional
-    function addShampooPromo() {
-      const existingShampoo = cart.find(item => item.name === shampooPromo.name);
-
-      if (!existingShampoo) {
-        cart.push({
-          name: shampooPromo.name,
-          size: "",
-          quantity: 1,
-          price: shampooPromo.regularPrice,
-          promotion: false
-        });
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartSummary();
-        showToast('Shampoo añadido por S/ 11.9');
-      }
-    }
-
-    function updateQuantity(productName, size, change) {
-      cart.forEach(item => {
-        if (item.name === productName && item.size === size) {
-          item.quantity += change;
-          if (item.quantity <= 0) {
-            cart = cart.filter(cartItem => cartItem !== item);
-          }
-        }
-      });
-
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartSummary();
-      updatePromoMessage(); // Verifica si se debe mostrar el mensaje de promoción del shampoo
-    }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartSummary();
+  updatePromoMessage(); // Verificar si se muestra el mensaje de la promoción
+}
 
     function toggleDetails() {
       const detailsContainer = document.getElementById('details-container');
@@ -521,28 +564,11 @@ button.promo-button:hover {
 
       Object.values(groupedCart).forEach(group => {
         const { name, items, price, promotion } = group;
-        let pairsWithDiscount = 0;
+        let subtotal = 0;
 
         items.forEach(item => {
-          let subtotal = 0;
-          if (promotion) {
-            for (let i = 1; i <= item.quantity; i++) {
-              if (i % 2 === 0) {
-                subtotal += item.price / 2;
-                pairsWithDiscount++;
-              } else {
-                subtotal += item.price;
-              }
-            }
-          } else {
-            subtotal = item.price * item.quantity;
-          }
-
+          subtotal += item.price * item.quantity;
           message += `🛍️ *Producto:* ${item.name}\n🔖 *Talla:* ${item.size}\n📦 *Cantidad:* ${item.quantity}\n💰 *Subtotal:* S/. ${subtotal.toFixed(2)}\n\n`;
-
-          if (pairsWithDiscount > 0) {
-            message += `🎉 ¡Descuento aplicado a ${pairsWithDiscount} par(es)!\n`;
-          }
         });
       });
 
@@ -553,7 +579,6 @@ button.promo-button:hover {
       window.open(whatsappUrl, '_blank');
     }
 
-    // Función para mostrar notificaciones tipo "toast"
     function showToast(message) {
       const toastContainer = document.getElementById('toast-container');
       const toast = document.createElement('div');
@@ -582,5 +607,3 @@ button.promo-button:hover {
 </body>
 
 </html>
-
-
