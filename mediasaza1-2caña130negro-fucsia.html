@@ -260,6 +260,11 @@
       background: linear-gradient(45deg, #ff7043, #ff5722);
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     }
+
+    /* Estilos para ocultar controles de cantidad del shampoo promocional */
+    .shampoo-promo .quantity-controls {
+      display: none;
+    }
   </style>
 </head>
 
@@ -275,14 +280,11 @@
       </div>
 
       <div class="row">
-        <div class="size-selection">
-          <label for="size">Talla:</label>
-          <select id="size" name="size">
-            <option value="S">S - Pequeño</option>
-            <option value="M">M - Mediano</option>
-            <option value="L">L - Largo</option>
-            <option value="XL">XL - Extra Largo</option>
-          </select>
+                <div class="size-selection">
+                    <label for="size">Talla:</label>
+                    <select id="size" name="size">
+                        <option value="UNICA">U - Pequeño</option>
+                    </select>
         </div>
         <div class="quantity-selection">
           <label for="quantity">Cantidad:</label>
