@@ -260,11 +260,6 @@
       background: linear-gradient(45deg, #ff7043, #ff5722);
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     }
-
-    /* Estilos para ocultar controles de cantidad del shampoo promocional */
-    .shampoo-promo .quantity-controls {
-      display: none;
-    }
   </style>
 </head>
 
@@ -280,8 +275,6 @@
       </div>
 
       <div class="row">
-        <div class="size-selection">
-          <label for="size">Talla:</label>
         <div class="quantity-selection">
           <label for="quantity">Cantidad:</label>
           <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
@@ -321,31 +314,32 @@
       promoThreshold: 129.9  // Umbral de la promoción
     };
 
-    function addToCart() {
-      const productName = document.getElementById('product-name').textContent;
-      const quantity = parseInt(document.getElementById('quantity').value);
-      const price = parseFloat(document.querySelector('.product-block').getAttribute('data-product-price'));
-      const promotion = document.querySelector('.product-block').getAttribute('data-promotion') === "true";
+function addToCart() {
+  const productName = document.getElementById('product-name').textContent;
+  const quantity = parseInt(document.getElementById('quantity').value);  // Se elimina la referencia al size
+  const price = parseFloat(document.querySelector('.product-block').getAttribute('data-product-price'));
+  const promotion = document.querySelector('.product-block').getAttribute('data-promotion') === "true";
 
-      const existingItem = cart.find(item => item.name === productName && item.size === size);
+  // Buscar si el producto ya está en el carrito (sin referencia a size)
+  const existingItem = cart.find(item => item.name === productName);
 
-      if (existingItem) {
-        existingItem.quantity += quantity;
-      } else {
-        cart.push({
-          name: productName,
-          size: size,
-          quantity: quantity,
-          price: price,
-          promotion: promotion
-        });
-      }
+  if (existingItem) {
+    existingItem.quantity += quantity;
+  } else {
+    cart.push({
+      name: productName,
+      quantity: quantity,
+      price: price,
+      promotion: promotion
+    });
+  }
 
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartSummary();
-      updatePromoMessage();
-      showToast('Producto añadido al carrito');
-    }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartSummary();
+  updatePromoMessage();
+  showToast('Producto añadido al carrito');
+}
+
 
 function updateCartSummary() {
   const cartItemsDiv = document.getElementById('cart-items');
