@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I24 JANDI-480 VERDE</title>
+  <title>I25 JANDI-480 VERDE</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
@@ -271,7 +271,7 @@
 <body>
   <div class="container">
     <div class="product-block" data-product-price="139.9" data-promotion="false">
-      <h2 class="product-name" id="product-name">I24 JANDI-480 VERDE</h2>
+      <h2 class="product-name" id="product-name">I25 JANDI-480 VERDE</h2>
       <div class="price-unit">Precio: S/. 139.9</div>
 
       <!-- Aviso de promoción debajo del precio principal -->
@@ -281,16 +281,6 @@
 
       <div class="row">
         <div class="size-selection">
-          <label for="size">Talla:</label>
-          <select id="size" name="size">
-            <option value="34">34</option>
-            <option value="35">35</option>
-            <option value="36">36</option>
-            <option value="37">37</option>
-            <option value="38">38</option>
-            <option value="39">39</option>
-          </select>
-        </div>
         <div class="quantity-selection">
           <label for="quantity">Cantidad:</label>
           <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
@@ -332,7 +322,6 @@
 
     function addToCart() {
       const productName = document.getElementById('product-name').textContent;
-      const size = document.getElementById('size').value;
       const quantity = parseInt(document.getElementById('quantity').value);
       const price = parseFloat(document.querySelector('.product-block').getAttribute('data-product-price'));
       const promotion = document.querySelector('.product-block').getAttribute('data-promotion') === "true";
