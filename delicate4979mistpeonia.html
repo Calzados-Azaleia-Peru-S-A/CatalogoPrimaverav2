@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DELICATE 4-979 MIST/PEONIA</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      background-color: #f4f7f6;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      overflow-y: auto;
+    }
+
+    .container {
+      max-width: 360px;
+      width: 100%;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .product-block,
+    .cart-summary {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .product-name,
+    .cart-summary h3 {
+      background: linear-gradient(45deg, #0057A6, #00A859); /* Azul y verde */
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+      padding: 3px 2px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .price-unit {
+      font-size: 18px;
+      color: #0057A6;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .promotion-message {
+      color: #e74c3c;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .row div {
+      flex: 1;
+      margin: 0 5px;
+    }
+
+    select,
+    input[type="number"] {
+      width: 75%;
+      padding: 5px 5px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      color: #333;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    .add-to-cart,
+    .details-button,
+    .send-order {
+      background: linear-gradient(45deg, #0057A6, #00A859); /* Azul y verde */
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .add-to-cart:hover,
+    .details-button:hover {
+      background: linear-gradient(45deg, #00A859, #0057A6); /* Verde y azul invertidos */
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .send-order {
+      background: linear-gradient(45deg, #00A859, #128C7E); /* Verde */
+    }
+
+    .send-order:hover {
+      background: linear-gradient(45deg, #128C7E, #00A859);
+    }
+
+    .totals {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .totals div {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .details-container {
+      display: none;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .cart-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-info {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .quantity-controls button {
+      background-color: #0057A6;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .quantity-controls button:hover {
+      background-color: #00A859;
+    }
+
+    .quantity {
+      margin: 0 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .price {
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #0057A6;
+    }
+
+    .discount-label {
+      color: #e74c3c;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* Toast CSS */
+    #toast-container {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+
+    .toast {
+      background-color: #333;
+      color: white;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .toast {
+        padding: 3px 7px;
+        font-size: 10px;
+      }
+    }
+
+    /* Promo Shampoo Button */
+    .promo-alert {
+      background-color: #fff5e1;
+      padding: 10px;
+      margin-top: 20px;
+      border-left: 4px solid #0057A6; /* Azul */
+      border-radius: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    button.promo-button {
+      background: linear-gradient(45deg, #0057A6, #00A859); /* Azul y verde */
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button.promo-button:hover {
+      background: linear-gradient(45deg, #00A859, #0057A6); /* Verde y azul invertidos */
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="product-block" data-product-price="219.9" data-promotion="true">
+      <h2 class="product-name" id="product-name">DELICATE 4-979 MIST/PEONIA</h2>
+      <div class="price-unit">Precio: S/. 219.9</div>
+
+      <!-- Aviso de promoción debajo del precio principal -->
+      <div class="promotion-message" id="promotion-message" style="display: none;">
+        ¡Descuento del 50% en el segundo par!
+      </div>
+
+      <div class="row">
+        <div class="size-selection">
+          <label for="size">Talla:</label>
+          <select id="size" name="size">
+	    <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+          </select>
+        </div>
+        <div class="quantity-selection">
+          <label for="quantity">Cantidad:</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+        </div>
+      </div>
+      <button class="add-to-cart" onclick="addToCart()">Agregar al carrito</button>
+    </div>
+
+    <!-- Contenedor para el mensaje de promoción -->
+    <div id="promo-message-container"></div>
+
+    <div class="cart-summary">
+      <h3>Carrito de compras</h3>
+      <div class="totals">
+        <div>Total de unidades: <span id="total-units">0</span></div>
+        <div>Total a pagar: S/. <span id="total-price">0.00</span></div>
+      </div>
+      <div class="action-buttons">
+        <button class="details-button" onclick="toggleDetails()">Detalles</button>
+        <button class="send-order" onclick="sendOrder()">Enviar pedido por WhatsApp</button>
+      </div>
+      <div class="details-container" id="details-container">
+        <div id="cart-items"></div>
+      </div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toast-container"></div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const shampooPromo = {
+  name: "SHAMPOO OLYMPIKUS-001",
+  regularPrice: 29.9,
+  promoPrice: 11.9,
+  promoThreshold: 129.9  // Umbral de la promoción
+};
+
+function addToCart() {
+  const productName = document.getElementById('product-name').textContent;
+  const size = document.getElementById('size').value;
+  const quantity = parseInt(document.getElementById('quantity').value);
+  const price = parseFloat(document.querySelector('.product-block').getAttribute('data-product-price'));
+  const isPromotion = document.querySelector('.product-block').getAttribute('data-promotion') === "true";
+
+  const existingItem = cart.find(item => item.name === productName && item.size === size);
+
+  if (existingItem) {
+    existingItem.quantity += quantity;
+  } else {
+    cart.push({
+      name: productName,
+      size: size,
+      quantity: quantity,
+      price: price,
+      promotion: isPromotion  // Guardamos si es un producto con promoción
+    });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartSummary();
+  updatePromoMessage();
+  showToast('Producto añadido al carrito');
+}
+
+function updateCartSummary() {
+  const cartItemsDiv = document.getElementById('cart-items');
+  const totalUnits = document.getElementById('total-units');
+  const totalPrice = document.getElementById('total-price');
+
+  cartItemsDiv.innerHTML = '';
+  let totalUnitsValue = 0;
+  let totalPriceValue = 0;
+
+  cart.forEach(item => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'cart-item';
+    const totalPriceForItem = item.price * item.quantity;
+
+    itemDiv.innerHTML = `
+      <div class="product-info">${item.name} (Talla: ${item.size})</div>
+      <div class="quantity-controls">
+        <button onclick="updateQuantity('${item.name}', '${item.size}', -1)">-</button>
+        <span class="quantity">${item.quantity}</span>
+        <button onclick="updateQuantity('${item.name}', '${item.size}', 1)">+</button>
+      </div>
+      <div class="price" style="color: #ff7043;">S/. ${totalPriceForItem.toFixed(2)}</div>
+    `;
+    cartItemsDiv.appendChild(itemDiv);
+
+    totalUnitsValue += item.quantity;
+    totalPriceValue += totalPriceForItem;
+  });
+
+  totalUnits.textContent = totalUnitsValue;
+  totalPrice.textContent = totalPriceValue.toFixed(2);
+
+  // Si el shampoo promocional está en el carrito, eliminar los botones
+  removeShampooControls();
+}
+
+function updatePromoMessage() {
+  // Solo los productos con "promotion=true" entran en el umbral de promoción
+  const totalPromotionPrice = cart
+    .filter(item => item.promotion)  // Filtrar solo los productos con promoción
+    .reduce((total, item) => total + (item.price * item.quantity), 0);
+  
+  const promoMessageContainer = document.getElementById('promo-message-container');
+  promoMessageContainer.innerHTML = '';
+
+  // Calcular cuántos shampoos promocionales se pueden añadir
+  const shampooEligibleQty = Math.floor(totalPromotionPrice / shampooPromo.promoThreshold); 
+  const existingShampoo = cart.find(item => item.name === shampooPromo.name);
+  const shampoosAgregados = existingShampoo ? existingShampoo.quantity : 0;
+  const shampoosRestantes = shampooEligibleQty - shampoosAgregados;
+
+  // Mostrar el mensaje de promoción si aún hay shampoos que se pueden agregar
+  if (shampoosRestantes > 0) {
+    const promoMessage = document.createElement('div');
+    promoMessage.className = 'promo-alert';
+    promoMessage.innerHTML = `
+      🎉 ¡Felicidades!  
+      Ya puedes añadir ${shampoosRestantes} SHAMPOO OLYMPIKUS-001(s) a S/. ${shampooPromo.promoPrice} cada uno.
+      <button class="promo-button" onclick="addShampooPromo(${shampoosRestantes})">Agregar Shampoo</button>
+    `;
+    promoMessageContainer.appendChild(promoMessage);
+  }
+
+  // Si el umbral ha bajado, reducir los shampoos promocionales en el carrito
+  if (shampoosAgregados > shampooEligibleQty) {
+    removeExcessShampoos(shampoosAgregados - shampooEligibleQty);
+  }
+}
+
+function addShampooPromo(shampoosRestantes) {
+  const existingShampoo = cart.find(item => item.name === shampooPromo.name);
+
+  if (shampoosRestantes > 0) {
+    const qtyToAdd = Math.min(1, shampoosRestantes);
+
+    if (existingShampoo) {
+      existingShampoo.quantity += qtyToAdd;
+      existingShampoo.price = shampooPromo.promoPrice;
+    } else {
+      cart.push({
+        name: shampooPromo.name,
+        size: "",
+        quantity: 1,
+        price: shampooPromo.promoPrice
+      });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartSummary();
+    showToast('Shampoo añadido por S/. 11.9');
+    updatePromoMessage();
+
+    // Eliminar los botones de agregar/disminuir para el shampoo
+    removeShampooControls();
+
+    if (shampoosRestantes - 1 <= 0) {
+      document.getElementById('promo-message-container').innerHTML = ''; 
+    }
+
+  } else {
+    showToast('No puedes agregar más shampoos promocionales');
+  }
+}
+
+function removeShampooControls() {
+  const shampooItem = cart.find(item => item.name === shampooPromo.name);
+  if (shampooItem) {
+    const cartItems = document.querySelectorAll('.cart-item');
+    cartItems.forEach(cartItem => {
+      const productInfo = cartItem.querySelector('.product-info').textContent;
+      if (productInfo.includes(shampooPromo.name)) {
+        const quantityControls = cartItem.querySelector('.quantity-controls');
+        if (quantityControls) {
+          quantityControls.remove();  // Eliminar los botones de control de cantidad
+        }
+      }
+    });
+  }
+}
+
+function removeExcessShampoos(excessQty) {
+  const existingShampoo = cart.find(item => item.name === shampooPromo.name);
+  if (existingShampoo && excessQty > 0) {
+    existingShampoo.quantity -= excessQty;
+    if (existingShampoo.quantity <= 0) {
+      cart = cart.filter(item => item !== existingShampoo);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartSummary();
+    showToast('Se han eliminado shampoos promocionales debido a la reducción en el umbral');
+  }
+}
+
+function updateQuantity(productName, size, change) {
+  cart.forEach(item => {
+    if (item.name === productName && item.size === size) {
+      item.quantity += change;
+      if (item.quantity <= 0) {
+        cart = cart.filter(cartItem => cartItem !== item);
+      }
+    }
+  });
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartSummary();
+  updatePromoMessage();
+}
+
+function toggleDetails() {
+  const detailsContainer = document.getElementById('details-container');
+  detailsContainer.style.display = detailsContainer.style.display === "block" ? "none" : "block";
+}
+
+function sendOrder() {
+  if (cart.length === 0) {
+    alert("El carrito está vacío. Agrega productos antes de enviar el pedido.");
+    return;
+  }
+
+  let message = '🛒 *Pedido de productos:* \n\n';
+  cart.forEach(item => {
+    const subtotal = item.price * item.quantity;
+    message += `🛍️ *Producto:* ${item.name}\n🔖 *Talla:* ${item.size}\n📦 *Cantidad:* ${item.quantity}\n💰 *Subtotal:* S/. ${subtotal.toFixed(2)}\n\n`;
+  });
+
+  const totalPrice = document.getElementById('total-price').textContent;
+  message += `💵 *Total a pagar:* S/. ${totalPrice}\n📱 *Gracias por tu compra!*\n`;
+
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank');
+}
+
+function showToast(message) {
+  const toastContainer = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+
+  toastContainer.appendChild(toast);
+
+  setTimeout(() => toast.classList.add('show'), 100);
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 500);
+  }, 3000);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  updateCartSummary();
+  updatePromoMessage();
+
+  const hasPromotion = document.querySelector('.product-block').getAttribute('data-promotion') === "true";
+  if (hasPromotion) {
+    document.getElementById('promotion-message').style.display = 'block';
+  }
+});
+
+
+  </script>
+</body>
+
+</html>
+
+
